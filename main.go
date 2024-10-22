@@ -37,7 +37,7 @@ func main() {
 		fmt.Print("How many tickets do you want to buy? ")
 		fmt.Scan(&userTickets)
 
-		len(firstName) >= 2
+		len(firstName) >=
 
 		if userTickets <= int(remainingTickets) {
 			remainingTickets -= uint(userTickets)
