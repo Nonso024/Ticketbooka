@@ -37,7 +37,9 @@ func main() {
 		fmt.Print("How many tickets do you want to buy? ")
 		fmt.Scan(&userTickets)
 
-		len(firstName) >=
+		isValidName := len(firstName) >= 2 && len(lastName) >= 2
+		isValidEmail := strings.Contains(email, "@")
+		isValidTicketNumber := userTickets > 0 && userTickets <= int(remainingTickets)
 
 		if userTickets <= int(remainingTickets) {
 			remainingTickets -= uint(userTickets)
