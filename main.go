@@ -41,7 +41,7 @@ func main() {
 		isValidEmail := strings.Contains(email, "@")
 		isValidTicketNumber := userTickets > 0 && userTickets <= int(remainingTickets)
 
-		if userTickets <= int(remainingTickets) {
+		if isValidName && isValidEmail && isValidTicketNumber && userTickets <= int(remainingTickets) {
 			remainingTickets -= uint(userTickets)
 			bookings = append(bookings, firstName+" "+lastName)
 
@@ -66,7 +66,16 @@ func main() {
 				break
 			}
 		} else {
-			fmt.Printf("We only have %v tickets remianing, so you can't book %v tickets\n", remainingTickets, userTickets)
+			if !isValidName {
+				fmt.Println("Firstname or lastname you entered is too short")
+			}
+			if !isValidEmail {
+				fmt.Println("Email address entered does not contain @ sign ")
+			}
+			if !isValidTicketNumber {
+				fmt.Println("Number of tickts you entered is invalid")
+			}
+			// fmt.Printf("We only have %v tickets remianing, so you can't book %v tickets\n", remainingTickets, userTickets)
 			continue // using a break statement ends the program abruptly without giving users a chance to make correct input
 
 		}
